@@ -2,6 +2,9 @@ import React, { useState} from 'react';
 import './App.css'
 import InputBox from './InputBox';
 import OutputBox from './OutputBoxes';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const precision = 2;
 
@@ -19,18 +22,29 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <p>
-        Converter
-      </p>
-      <InputBox
-        temperature={temperature}
-        updateTemperature={updateTemperature}
-      />
-      <OutputBox 
-        celcius={celcius} 
-        fahrenheit={fahrenheit}
-      />
+    <div>
+      <Container>
+        <Row></Row>
+        <Row>
+          <Col>
+            <InputBox
+            temperature={temperature}
+            updateTemperature={updateTemperature}
+            />
+          </Col>
+          <Col>
+            <h1>O => C: </h1>
+            <br></br>
+            <h1>C => F: </h1>
+          </Col>
+          <Col>
+            <OutputBox 
+            celcius={celcius} 
+            fahrenheit={fahrenheit}
+            />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

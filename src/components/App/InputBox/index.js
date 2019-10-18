@@ -1,5 +1,6 @@
 import React from 'react';
-import Input from '@material-ui/core/TextField';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
 import './InputBox.css';
 
 function InputBox(props)
@@ -10,15 +11,17 @@ function InputBox(props)
     return( 
         <div>
             <p>Input Box</p>
-            <input
-                fullWidth={true}
+            <InputGroup>
+                <FormControl
+                aria-label="Large"
                 autoFocus={true}
-                style={inputStyle}
                 type="number"
                 placeholder="Input Temperature in C or F here"
                 value={props.temperature}
                 onChange={props.updateTemperature}
-            />
+                >
+                </FormControl>
+            </InputGroup>
         </div>
     )
 }

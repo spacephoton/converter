@@ -3,16 +3,18 @@ import './App.css';
 import InputBox from './InputBox';
 import OutputBox from './OutputBoxes';
 
-//returns pair of elements: {celcius, fahrenheit}
-function getTemperatures(temperature)
-{
-  return ([1,11]);
-}
-
 function App() {
   const [temperature, setTemperature] = useState(10);
   const [celcius, setCelcius] = useState(0);
   const [fahrenheit, setFahrenheit] = useState(32);
+
+  function updateTemperature(event){
+    var current = event.target.value;
+    setTemperature(current);
+    setFahrenheit(Math.round((current * 9 / 5) + 32),5);
+    setCelcius(Math.round((current - 32) * 5 / 9),14);
+    return null;
+  }
 
   return (
     <div className="App">
@@ -21,7 +23,7 @@ function App() {
       </p>
       <InputBox
         temperature={temperature}
-        setTemperature={setTemperature}
+        updateTemperature={updateTemperature}
       />
       <OutputBox 
         celcius={celcius} 

@@ -1,15 +1,15 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/TextField';
 
-function InputBox()
+function InputBox(props)
 {
     return( 
         <div>
             <p>Input Box</p>
-            <TextField
-                id="filled-number"
-                value="13"
+            <Input
                 type="number"
+                value={props.temperature}
+                onChange={props.updateTemperature}
             />
         </div>
     )

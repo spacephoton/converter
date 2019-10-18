@@ -3,35 +3,29 @@ import './App.css';
 import InputBox from './InputBox';
 import OutputBox from './OutputBoxes';
 
-//returns temperature in celcius
-function getCelcius(fahrenheit)
+//returns pair of elements: {celcius, fahrenheit}
+function getTemperatures(temperature)
 {
-  return 0;
-}
-
-//returns temperature in fahreneheit
-function getFahrenheit(celcius)
-{
-
-  return 0;
+  return ([1,11]);
 }
 
 function App() {
+  const [temperature, setTemperature] = useState(10);
   const [celcius, setCelcius] = useState(0);
   const [fahrenheit, setFahrenheit] = useState(32);
-  
+
   return (
     <div className="App">
       <p>
         Converter
       </p>
-      <InputBox>
-      </InputBox>
+      <InputBox
+        temperature={temperature}
+        setTemperature={setTemperature}
+      />
       <OutputBox 
         celcius={celcius} 
-        setCelcius={setCelcius} 
         fahrenheit={fahrenheit}
-        setFahrenheit={setFahrenheit}
       />
     </div>
   );

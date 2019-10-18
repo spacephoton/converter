@@ -1,18 +1,20 @@
 import React, { useState} from 'react';
-import './App.css';
+import './App.css'
 import InputBox from './InputBox';
 import OutputBox from './OutputBoxes';
 
+const precision = 2;
+
 function App() {
-  const [temperature, setTemperature] = useState(10);
-  const [celcius, setCelcius] = useState(0);
-  const [fahrenheit, setFahrenheit] = useState(32);
+  const [temperature, setTemperature] = useState();
+  const [celcius, setCelcius] = useState();
+  const [fahrenheit, setFahrenheit] = useState();
 
   function updateTemperature(event){
     var current = event.target.value;
     setTemperature(current);
-    setFahrenheit(Math.round((current * 9 / 5) + 32),5);
-    setCelcius(Math.round((current - 32) * 5 / 9),14);
+    setFahrenheit(parseFloat(Math.fround((current * 9 / 5) + 32)).toFixed(precision));
+    setCelcius(parseFloat(Math.fround((current - 32) * 5 / 9)).toFixed(precision));
     return null;
   }
 
